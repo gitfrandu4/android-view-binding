@@ -152,7 +152,7 @@ val text = editText.text.toString()
 
 Si queremos que se pueda pulsar usamos clickable = true y el background indicado en el xml
 
-<img src="imgs/image-view" alt="ImageView" style="max-width: 100%;max-height: 240px;">
+<img src="imgs/image-view.png" alt="ImageView" style="max-width: 100%;max-height: 240px;">
 
 
 
