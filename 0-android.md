@@ -16,7 +16,7 @@ Profesor: Alberto Luengo
 
 ## El curso
 
-**¿Por qué ser programador de apps?
+**¿Por qué ser programador de apps?**
 
 * El 98% del mercado móvil utiliza Android o iOS
 * Mucha demanda con diversas salidas
@@ -60,9 +60,19 @@ Es un lenguaje potente, rápido y ligero. Una curva de aprendizaje más rápida 
 XML no es un lenguaje de programación como tal. Pero nos sirve para esquematizar las vistas y recursos de nuestra app.
 
 ```xml
-
+<resources>
+    <string name="app_name">App de Prueba</string>
+    <string name="welcome_message">Bienvenido</string>
+</resources>
 ```
 
+**Gradle (DSL)**
+
+Permite la automatización de compilación de código.
+
+Los scripts se escriben utilizándolo
+
+Groovy o Kootlin DSL (Domain Specific Language)
 
 
 
