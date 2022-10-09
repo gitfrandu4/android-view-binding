@@ -221,15 +221,59 @@ Y jugando con los valores del peso obtenemos lo siguiente:
 <img src="imgs/moving-layouts.png" alt="spaces" style="max-width: 100%;max-height: 240px;">
 
 
+## Resources
+
+```xml
+strings.xml / strings-es.xml
+	<string name="app_name">My Application</string>	<string name="title_activity_main2">MainActivity</string>
+colors.xml	<color name="colorPrimary">#6200EE</color>	<color name="colorPrimaryDark">#3700B3</color>	<color name="colorAccent">#03DAC5</color>
+dimens.xml	<dimen name="horizontal_margin">16dp</dimen>
+styles.xml	<!-- Base application theme. -->	<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">		<!-- Customize your theme here. -->		<item name="colorPrimary">@color/colorPrimary</item>		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>		<item name="colorAccent">@color/colorAccent</item>	</style>
+```
+
+<img src="imgs/resources.png" alt="resources" style="max-width: 100%;max-height: 240px;">
 
 
+## Material Design
+
+### Diseño en Android
+
+Docu: https://material.io/components?platform=android
+
+Material design contiene la mayoría de componentes nativos de android con los que están hechas todas las apps y una guia de estilos.
+
+### Botones
+
+Docu: https://material.io/develop/android/components/buttons/
+
+También tenemos los recursos oficiales aquí, aunque pueden ser complicados de entender a la primera. 
+
+Hay que importar siempre esta librería (con su correspondiente versión):`implementation 'com.google.android.material:material:1.6.0'`
+
+<img src="imgs/material-dependency.png" alt="import material library" style="max-width: 100%;max-height: 240px;">
+Y en `styles.xml` cambiamos el theme de la app:
+
+```xml<Button	android:id="@+id/textButton"	android:layout_margin="30dp"	android:layout_width="match_parent"	android:layout_height="wrap_content"	android:textColor="@android:color/white"	android:backgroundTint="@color/colorPrimaryDark"	android:text="Text button"	style="@style/Widget.MaterialComponents.Button.TextButton"/>
+```
+
+<img src="imgs/button-material.png" alt="button material design" style="max-width: 100%;max-height: 240px;">
 
 
+## Mostrar mensajes al usuario
 
+**Toast**:
+Muestra feedback sobre alguna operación realizada. Idealmente debe mostrar mensajes cortos. Aparece por un periodo corto o largo.
 
+```KotlinToast.makeText(this, "Boton pulsado!", Toast.LENGTH_SHORT).show()Snackbar.make(view, "Boton pulsado!", Snackbar.LENGTH_SHORT).show()```
 
+<img src="imgs/toast.png" alt="toast" style="max-width: 100%;max-height: 240px;">
 
+**Snackbar**:
 
+Muestra feedback sobre alguna operación realizada, y es similar a un toast aunque podemos hacer que no desaparezca tras un periodo de tiempo. Hay que usar una vista para poder llamarlo, puede ser el contenedor del activity o cualquier otra.
+Puede contener un botón de texto de acción
+
+<img src="imgs/snackbar.png" alt="resources" style="max-width: 100%;max-height: 240px;">
 
 
 

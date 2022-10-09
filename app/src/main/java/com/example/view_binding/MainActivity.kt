@@ -5,12 +5,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import com.example.view_binding.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 import java.sql.Time
 import java.sql.Timestamp
 import java.time.Instant.now
 
 class MainActivity : AppCompatActivity() {
+
+    // private lateinit var snackbar: Snackbar
+    private var snackbar: Snackbar? = null
 
     // activity_main.xml => ActivityMainBinding
     private lateinit var binding: ActivityMainBinding;
@@ -58,6 +63,16 @@ class MainActivity : AppCompatActivity() {
         }
         binding.cookie.setOnClickListener{
             msgInput.setText("Give me cookies!!")
+        }
+        
+        binding.btToast.setOnClickListener {
+            Toast.makeText(this, "Snackbar closed", Toast.LENGTH_SHORT).show()
+            snackbar?.dismiss()
+        }
+
+        binding.btSnackbar.setOnClickListener {
+            snackbar = Snackbar.make(binding.root, "Soy un snackbar", Snackbar.LENGTH_INDEFINITE)
+            snackbar?.show()
         }
     }
 }

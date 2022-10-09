@@ -8,4 +8,6 @@
     <string name="textview">TextView</string>
     <string name="write_here">Redacta aquí tu mensaje :)</string>
     <string name="send">Enviar</string>
+    <string name="show_toast">Mostrar Toast</string>
+    <string name="show_snackbar">Mostrar Snackbar</string>
 </resources>
