@@ -22,14 +22,44 @@ Si queremos combinar varios elementos de tipo vista tendremos que utilizar un ob
 
 **LinearLayout**: Alinea todos los campos secundarios en una única dirección, de manera vertical u horizontal. Puedes especificar la dirección del diseño con el atributo `android:orientation`
 
-<img src="imgs/linear-layout.png" alt="linear layout">
+<img src="imgs/linear-layout.png" alt="linear layout" style="max-width: 100%;max-height: 240px;">
+
+```xml
+<LinearLayout	android:layout_width="match_parent"	android:layout_height="match_parent"	android:paddingLeft="16dp"	android:paddingRight="16dp"	android:orientation="vertical" ><EditText	android:layout_width="match_parent"	android:layout_height="wrap_content"	android:hint="Nombre" /><Button	android:layout_width="100dp"	android:layout_height="wrap_content"	android:layout_gravity="right"	android:text="Enviar" />
+</LinearLayout>
+```
 
 ### `RelativeLayout`
 
+**RelativeLayout**: Muestra vistas secundarias en posiciones relativas. La posición de cada vista puede especificarse como relativa a elementos hermanos (como a la izquierda o debajo de otra vista) o en posiciones relativas al área de `RelativeLayout` principal (como alineada a la parte inferior, izquierda o centro. 
+
+<img src="imgs/relative-layout.png" alt="relative layout" style="max-width: 100%;max-height: 240px;">
+
+```xml
+<RelativeLayout	android:layout_width="match_parent"	android:layout_height="match_parent"	android:paddingLeft="16dp"	android:paddingRight="16dp" >
+<EditText	android:id="@+id/name"	android:layout_width="match_parent"	android:layout_height="wrap_content"	android:hint="Nombre" />
+<Button	android:layout_width="96dp"	android:layout_height="wrap_content"	android:layout_below="@id/name"	android:layout_alignParentRight="true"	android:text="OK" />
+</RelativeLayout>
+```
+
 ### `ConstraintLayout`
+
+**ConstraintLayout**: Permitirá simplificar las interfaces en anidamiento, para hacerlas lo más complejas posibles a nivel de diseño. Este layout, similar al RelativeLayout nos permitirá establecer relaciones entre todos los elementos y la propia vista padre, permitiendo así ser mucho más flexible que los demás.
+
+<img src="imgs/constraint-layout.png" alt="constraint layout" style="max-width: 100%;max-height: 240px;" >
+
+```xml
+<RelativeLayout	android:layout_width="match_parent"	android:layout_height="match_parent"	android:paddingLeft="16dp"	android:paddingRight="16dp" >
+<EditText	android:id="@+id/name"	android:layout_width="match_parent"	android:layout_height="wrap_content"	android:hint="Nombre" />
+<Button	android:layout_width="96dp"	android:layout_height="wrap_content"	android:layout_below="@id/name"	android:layout_alignParentRight="true"	android:text="OK" />
+</RelativeLayout>
+```
 
 ## Scrolls
 
+También podemos utilizar otras clases de Vistas, que son descritas a continuación:
+
+* **ScrollView**: Visualiza una columna de elementos; cuando estos no caben en pantalla se permite un deslizamiento vertical.* **NestedScrollView**: es lo mismo que el scrollview, pero soporta comportamientos anidados.* **HorizontalScrollView**: Visualiza una fila de elementos; cuando estos no caben en pantalla se permite un deslizamiento horizontal.
 
 
 ## Vinculación de vista
@@ -93,3 +123,45 @@ btEnviar.setOnClickListener {
     // Aquí podemos establecer lo que hará nuestro código una vez pulsado el botón con id Button
 }
 ```
+
+**Eventos y Referencias**
+
+Si queremos acceder al texto introducido por el usuario en un `EditText`:
+
+```kotlin
+val text = editText.text.toString()
+```
+
+## Styles y Themes
+
+
+
+## Drawables
+
+
+
+<img src="imgs/drawables.png" alt="drawables" style="max-width: 100%;max-height: 240px;">
+
+
+## ImageView
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"	xmlns:app="http://schemas.android.com/apk/res-auto"	xmlns:tools="http://schemas.android.com/tools"	android:layout_width="match_parent"	android:layout_height="match_parent"	android:gravity="center">	<ImageView		android:padding="8dp"		android:clickable="true"		android:background="?selectableItemBackgroundBorderless"		android:layout_width="wrap_content"		android:layout_height="wrap_content"		android:src="@drawable/ic_baseline_delete_24" /></LinearLayout>
+```
+
+Si queremos que se pueda pulsar usamos clickable = true y el background indicado en el xml
+
+<img src="imgs/image-view" alt="ImageView" style="max-width: 100%;max-height: 240px;">
+
+
+
+
+
+
+
+
+
+
+
+
