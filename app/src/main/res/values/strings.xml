@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">view-binding</string>
+    <string name="icon_with_a_cookie">icon with a cookie</string>
+    <string name="reload_button">icon to enable send button</string>
+    <string name="fast_msg">Mensaje rápido</string>
+    <string name="delete_history">Borrar historial de mensajes</string>
+    <string name="hello_world">Hello World! Learning Android ^^</string>
+    <string name="textview">TextView</string>
+    <string name="write_here">Redacta aquí tu mensaje :)</string>
+    <string name="send">Enviar</string>
 </resources>

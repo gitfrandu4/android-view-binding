@@ -31,6 +31,8 @@ Si queremos combinar varios elementos de tipo vista tendremos que utilizar un ob
 
 ### `RelativeLayout`
 
+Docu: https://developer.android.com/develop/ui/views/layout/relative
+
 **RelativeLayout**: Muestra vistas secundarias en posiciones relativas. La posición de cada vista puede especificarse como relativa a elementos hermanos (como a la izquierda o debajo de otra vista) o en posiciones relativas al área de `RelativeLayout` principal (como alineada a la parte inferior, izquierda o centro. 
 
 <img src="imgs/relative-layout.png" alt="relative layout" style="max-width: 100%;max-height: 240px;">
@@ -134,25 +136,124 @@ val text = editText.text.toString()
 
 ## Styles y Themes
 
+Styles y Themes en android te permiten separar los detalles del diseño de tu app de la UI, similar a una hoja de estilos (CSS) en la web. 
 
+Un style es una coleccioón de atributos que especifican la apariencia de una vista. Un style puede cambiar los atributos de color, fuentes, tamaños, fondos y mucho más. 
+
+<img src="imgs/styles-and-themes.png" alt="styles and themes" style="max-width: 100%;max-height: 240px;">
+
+<img src="imgs/themes-android-studio.png" alt="styles and themes, android studio" style="max-width: 100%;max-height: 240px;">
 
 ## Drawables
 
+Recursos de elementos de diseño.
 
+Un drawable es un tipo de recurso que puede ser dibujado en pantalla. Podremos utilizarlos para especificar el aspecto que van a tener los diferentes componentes de la interfaz, o partes de éstos. Estos drawables podrán ser definidos en XML o de forma programática. 
+
+En la carpeta drawable con el botón derecho podemos crear un icono para utilizar en la app o importarlo desde nuestro ordenador. 
 
 <img src="imgs/drawables.png" alt="drawables" style="max-width: 100%;max-height: 240px;">
 
+<img src="imgs/custom-vector-asset.png" alt="add vectot asset" style="max-width: 100%;max-height: 240px;">
+
 
 ## ImageView
+
+Un ImageView nos permite mostrar una imagen y tiene propiedades que nos ayudan a adaptarlo a lo que nos interesa.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"	xmlns:app="http://schemas.android.com/apk/res-auto"	xmlns:tools="http://schemas.android.com/tools"	android:layout_width="match_parent"	android:layout_height="match_parent"	android:gravity="center">	<ImageView		android:padding="8dp"		android:clickable="true"		android:background="?selectableItemBackgroundBorderless"		android:layout_width="wrap_content"		android:layout_height="wrap_content"		android:src="@drawable/ic_baseline_delete_24" /></LinearLayout>
 ```
 
-Si queremos que se pueda pulsar usamos clickable = true y el background indicado en el xml
+Si queremos que se pueda pulsar usamos clickable = true y el background indicado en el xml: 
+
+```xml
+        android:background="?selectableItemBackgroundBorderless"
+```
 
 <img src="imgs/image-view.png" alt="ImageView" style="max-width: 100%;max-height: 240px;">
+
+## Weight
+
+Podemos utilizar el peso en un componente para separarlo porcentualmente. 
+
+Para hacer esto dentro de un ´LinearLayout` (esto solo lo podemos utilizar dentro de un `LinearLayout`) utilizando el peso es así:
+
+
+```xml
+<LinearLayout	android:layout_width="match_parent"	android:layout_height="60dp"	android:background="@color/colorPrimary"	android:orientation="horizontal">	<Button		android:id="@+id/register"		android:layout_width="0dp" 				// <==		android:layout_height="wrap_content"		android:layout_weight="1" 				// <==		android:padding="10dip"		android:text="Login" />
+	<Button		android:id="@+id/cancel"		android:layout_width="0dp"				// <==		android:layout_height="wrap_content"		android:layout_weight="1"				// <==		android:padding="10dip"		android:text="Registro" />
+</LinearLayout>
+```
+
+<img src="imgs/weight-1.png" alt="weight 1" style="max-width: 100%;max-height: 240px;">
+
+Y jugando con los valores del peso obtenemos lo siguiente:
+
+```xml
+<LinearLayout	android:layout_width="match_parent"	android:layout_height="60dp"	android:background="@color/colorPrimary"	android:orientation="horizontal">	<Button		android:id="@+id/register"		android:layout_width="0dp"				// <==		android:layout_height="wrap_content"		android:layout_weight="0.3"				// <==		android:padding="10dip"		android:text="Login" />	<Button		android:id="@+id/cancel"		android:layout_width="0dp"				// <==		android:layout_height="wrap_content"		android:layout_weight="0.7"				// <==		android:padding="10dip"		android:text="Registro" />
+</LinearLayout>
+```
+
+<img src="imgs/weight-2.png" alt="weight 2" style="max-width: 100%;max-height: 240px;">
+
+## Espacios
+
+* **margin** - Distancia entre los 4 lados* **marginLeft** - Distancia en el lado izquierdo* **marginRight** - Distancia en el lado derechpo* **marginTop** - Distancia en el lado de arriba* **marginBottom** - Distancia en el lado de abajo* **padding** - Distancia entre los 4 lados desde dentro* **paddingLeft** - Distancia en el lado izquierdo desde dentro* **paddingRight** - Distancia en el lado derechpo desde dentro* **paddingTop** - Distancia en el lado de arriba desde dentro* **paddingBottom** - Distancia en el lado de abajo desde dentro
+
+
+<img src="imgs/spaces.png" alt="spaces" style="max-width: 100%;max-height: 240px;">
+
+
+## Mover contenedores por la vista
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"		xmlns:app="http://schemas.android.com/apk/res-auto"		xmlns:tools="http://schemas.android.com/tools"		android:layout_width="match_parent"		android:layout_height="match_parent"		android:orientation="vertical"		android:background="@color/colorAccent"		tools:context=".MainActivity">
+	<LinearLayout		android:layout_width="match_parent"		android:layout_height="60dp"		android:layout_alignParentBottom="true"		android:background="@color/colorPrimary"		android:gravity="bottom"		android:orientation="horizontal">
+		<Button			android:id="@+id/register"			android:layout_width="0dp"			android:layout_height="wrap_content"			android:layout_weight="0.3"			android:padding="10dip"		android:text="Login" />
+		<Button			android:id="@+id/cancel"			android:layout_width="0dp"			android:layout_height="wrap_content"			android:layout_weight="0.7"			android:padding="10dip"			android:text="Registro" />
+	</LinearLayout>
+</RelativeLayout>
+```
+
+<img src="imgs/moving-layouts.png" alt="spaces" style="max-width: 100%;max-height: 240px;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
