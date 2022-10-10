@@ -19,6 +19,9 @@
 * [Mostrar imágenes al usuario](https://github.com/gitfrandu4/android-view-binding#material-design)
 * [Final result 🙈](https://github.com/gitfrandu4/android-view-binding#final-result-)
 
+Un vistazo a lo que viene:
+
+<img src="imgs/coming-soon.png" alt="coming soon" width="560">
 
 ## Elementos visuales
 
